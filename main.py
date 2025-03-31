@@ -56,4 +56,5 @@ def handle_send_message(data):
         emit('room_not_found', {'room': room_name})
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, allow_unsafe_werkzeug=True)
+    port = int(os.environ.get("PORT", 5000))
+    socketio.run(app, debug=True, allow_unsafe_werkzeug=True, host='127.0.0.1', port=port)
